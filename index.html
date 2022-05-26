@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'poppins',sans-serif;
+        }
+        .A{
+            width:100%;
+            height: 100vh;
+            background: blue;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+        }
+        form{
+            background: white;
+            display: flex;
+            flex-direction: column;
+            padding:2vw 4vw;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 20px;
+        }
+        form h3{
+            color: #555;
+            font-weight: 800;
+            margin-bottom: 25px;
+
+        }
+        form input{
+            border: 0;
+            margin: 10px 0;
+            padding: 20px;
+            outline: none;
+            background: rgb(221, 219, 219);
+            font-size: 18px;
+            border-radius: 4px;
+
+        }
+        form button{
+            padding: 15px;
+            background:#ff5361;
+            color: white;
+            font-size: 18px;
+            border: 0;
+            outline: none;
+            cursor:pointer;
+            width: 150px;
+            margin:20px auto 0;
+            border-radius: 40px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="A">
+     <form onsubmit="sendEmail(); reset(); return false;">
+      <h3>GET IN TOUCH</h3>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Email id" required>
+      <input type="text" id="rollno" placeholder="Your RollNo" required>
+      <input type="text" id="phone" placeholder="Phone no" required>
+      <button type="submit">Send</button>
+
+     </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+                 
+            Email.send({
+    SecureToken:" e2fe4de9-f687-4727-a215-63fc5e41394b",
+    Host : "smtp.elasticemail.com",
+    Username : "brahmanandarao55@gmail.com",
+    Password : "B9F5A74942B476085102B429A1076C6A8D9B",
+    To : 'brahmanandarao55@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New Contact Form",
+    Body : "And this is the body"
+}).then(
+  message => alert("bye")
+);
+        }
+    </script>
+</body>
+</html>
